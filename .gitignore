@@ -50,6 +50,7 @@ temp/
 .serverless/
 .vercel/
 .netlify/
+.env.production
 
 firebase-key.json
 
