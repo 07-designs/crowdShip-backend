@@ -26,18 +26,18 @@ const startServer = async () => {
 };
 
 // // Handle unhandled promise rejections
-// process.on('unhandledRejection', (reason: Error, promise: Promise<any>) => {
-//   logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
-//   // Close server & exit process
-//   server.close(() => process.exit(1));
-// });
+process.on('unhandledRejection', (reason: Error, promise: Promise<any>) => {
+  logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  // Exit process with failure
+  process.exit(1);
+});
 
 // // Handle uncaught exceptions
-// process.on('uncaughtException', (error: Error) => {
-//   logger.error('Uncaught Exception:', error);
-//   // Close server & exit process
-//   server.close(() => process.exit(1));
-// });
+process.on('uncaughtException', (error: Error) => {
+  logger.error('Uncaught Exception:', error);
+  // Exit process with failure
+  process.exit(1);
+});
 
 // // Handle SIGTERM
 // process.on('SIGTERM', () => {
